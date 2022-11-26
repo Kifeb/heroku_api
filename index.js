@@ -9,12 +9,12 @@ const port = process.env.PORT || 5000
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// db.sync({force: true}).then(() => {
-//     console.log("Database Connected");
-// }).catch((error) => {
-//     console.error("Failed to sync database : " + error.message);
-//     process.exit(1);
-// })
+db.sync({force: true}).then(() => {
+    console.log("Database Connected");
+}).catch((error) => {
+    console.error("Failed to sync database : " + error.message);
+    process.exit(1);
+})
 
 app.get("/", (req, res) => {
     res.json({message: "Node.js Rest API"});
